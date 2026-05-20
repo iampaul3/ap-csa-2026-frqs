@@ -10,8 +10,15 @@ public Account(String requestedName) {
 
 # Part B
 public String getShortenedName() {
+  String newResult = "";
+  int i = 0;
   if (username.indexOf("-") == -1) {
       return username;
   } else {
-    for (int i 
+    while (username.indexOf("-") > 0) {
+      int index = username.indexOf("-");
+      newResult += username.substring(i, index-1);
+      i = index+1;
+    }
+    return newResult;
   }
