@@ -2,13 +2,14 @@ public int getPointsForRow(int targetRow) {
   int sum = 0;
   int i = 0;
   int count = 0;
-  for (int i = 0; i < space.length; i++) {
-    sum += space[targetRow][i];
+  for (int j = 0; j < board.length; j++) {
+    sum += board[targetRow][j].getPoints();
   }
-  while (space[targetRow][i].getColor().equals(space[targetRow][i+1].getColor())) {
+  while (board[targetRow][i].getColor().equals(board[targetRow][i+1].getColor())) {
     count++;
+    i++;
   }
-  if (count == space.length) {
+  if (count == board.length) {
     return 2*sum;
   } else {
     return sum;
